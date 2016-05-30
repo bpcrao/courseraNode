@@ -18,11 +18,18 @@ db.once('open', function() {
 
   Dishes.create({
     name: 'pizzza2',
+    image: 'images/uthapizza.png',
+    category: 'mains',
+    price: '5.45',
     description: 'test',
     comments: [{
       rating: 3,
       comment: 'This is insane',
       author: 'Matt Daemon'
+    }, {
+      rating: 5,
+      comment: 'Imagine all the eatables, living in conFusion!',
+      author: 'John Lemon'
     }]
   }, function(err, dish) {
     if (err) {
@@ -46,9 +53,9 @@ db.once('open', function() {
   newDish.save(function(err, dishes) {
     Dishes.find({}, function(err, dishes) {
       console.log(dishes);
-      db.collection('dishes').drop(function() {
-        console.log("dishes are dropped");
-      })
+      // db.collection('dishes').drop(function() {
+      //   console.log("dishes are dropped");
+      // })
     });
   });
 })

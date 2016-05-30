@@ -6,8 +6,7 @@ require('mongoose-currency').loadType(mongoose);
 var Currency = mongoose.Types.Currency;
 var Schema = mongoose.Schema;
 
-var dishSchema = new Schema({
-
+var promotionSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -17,30 +16,21 @@ var dishSchema = new Schema({
   image: {
     type: String
   },
-
-  category: {
-    type: String
-  },
-
   label: {
     type: String,
     default: ''
   },
-
   price: {
     type: Currency
-  },
 
+  },
   description: {
     type: String
-  },
-
-  comments: [commentSchema]
-
+  }
 }, {
   timestamps: true
 });
 
-var Dishes = mongoose.model('Dish', dishSchema);
+var Promotions = mongoose.model('Promotion', promotionSchema);
 
-module.exports = Dishes;
+module.exports = Promotions;
