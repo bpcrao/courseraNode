@@ -23,7 +23,7 @@ var users = require('./routes/users');
 var dishRouter = require('./routes/dishRouter');
 var promoRouter = require('./routes/promoRouter');
 var leadershipRouter = require('./routes/leadershipRouter');
-
+var favsRouter =  require('./routes/favouritesRouter');
 
 var app = express();
 
@@ -54,6 +54,7 @@ app.use('/users', users);
 app.use('/dishes', dishRouter);
 app.use('/promos', promoRouter);
 app.use('/leadership', leadershipRouter);
+app.use('/favourites', favsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -85,8 +86,8 @@ app.use(function(err, req, res, next) {
   });
 });
 
-app.listen(3000, function() {
-  console.log('Example app listening on port 3000!');
+app.listen(3001, function() {
+  console.log('Example app listening on port 3001!');
 });
 
 module.exports = app;

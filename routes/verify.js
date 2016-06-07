@@ -9,7 +9,8 @@ exports.getToken = function(user) {
 };
 
 exports.verifyOrdinaryUser = function(req, res, next) {
-  // check header or url parameters or post parameters for token
+    
+  //check header or url parameters or post parameters for token
   var token = req.body.token || req.query.token || req.headers[
     'x-access-token'];
 
@@ -39,7 +40,6 @@ exports.verifyOrdinaryUser = function(req, res, next) {
 
 
 exports.verifyAdmin = function(req, res, next) {
-  console.log("verify admin called");
   console.log(req.decoded._doc.admin);
   if (req.decoded._doc.admin) {
     next();
